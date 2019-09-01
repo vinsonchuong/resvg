@@ -1,35 +1,74 @@
 {
   "name": "resvg",
   "version": "0.0.0",
-  "description": "An awesome package",
-  "keywords": [],
+  "description": "React components you can use to create amazing interactive visualizations!",
+  "keywords": [
+    "react",
+    "components",
+    "svg"
+  ],
   "homepage": "https://github.com/vinsonchuong/resvg",
   "bugs": "https://github.com/vinsonchuong/resvg/issues",
   "license": "MIT",
   "author": "Vinson Chuong <vinsonchuong@gmail.com>",
   "repository": "vinsonchuong/resvg",
   "scripts": {
-    "prepare": "flow-typed update --skip",
-    "test": "if [ -n \"$CI\" ]; then standard -v && flow check && ava -v; else standard -v --fix && flow && ava -v; fi",
-    "release": "semantic-release",
+    "test": "if [ -n \"$CI\" ]; then standard -v && ava -v; else standard -v --fix && ava -v; fi",
+    "start": "parcel docs/index.html",
+    "release": "parcel build docs/index.html && semantic-release",
     "prepack": "build-esm"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": ">=16.9.0",
+    "resize-observer-polyfill": "^1.5.1"
+  },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.5.5",
+    "@qiwi/semantic-release-gh-pages-plugin": "^1.10.5",
+    "@sindresorhus/slugify": "^0.9.1",
     "ava": "^2.3.0",
-    "build-esm": "^4.2.1",
-    "flow-bin": "^0.106.2",
-    "flow-typed": "^2.6.1",
-    "overdub": "^2.5.0",
+    "build-esm": "^4.2.2",
+    "classnames": "^2.2.6",
+    "parcel-bundler": "^1.12.3",
+    "puppet-strings": "^3.2.0",
+    "puppet-strings-open-app": "^3.0.2",
+    "react-dom": "^16.9.0",
+    "react-jss": "^10.0.0-alpha.24",
+    "react-syntax-highlighter": "^11.0.2",
     "semantic-release": "^15.13.24",
-    "standard-esnext": "^5.3.3"
+    "standard-esnext": "^5.3.3",
+    "strip-indent": "^3.0.0",
+    "trim-newlines": "^3.0.0"
   },
   "ava": {
-    "require": "overdub/register",
-    "babel": {
-      "testOptions": {
-        "extends": "overdub/babel"
+    "require": "@babel/register"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      {
+        "path": "@qiwi/semantic-release-gh-pages-plugin",
+        "src": "dist"
       }
-    }
+    ]
   }
 }

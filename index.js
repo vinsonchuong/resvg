@@ -1,2 +1,1 @@
-/* @flow */
-export default 'Hello World!'
+export { default as Size } from './components/size'

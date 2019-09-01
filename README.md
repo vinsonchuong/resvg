@@ -4,12 +4,6 @@
 [![dependencies Status](https://david-dm.org/vinsonchuong/resvg/status.svg)](https://david-dm.org/vinsonchuong/resvg)
 [![devDependencies Status](https://david-dm.org/vinsonchuong/resvg/dev-status.svg)](https://david-dm.org/vinsonchuong/resvg?type=dev)
 
-An awesome package
+React components you can use to create amazing interactive visualizations!
 
-## Usage
-Install [resvg](https://yarnpkg.com/en/package/resvg)
-by running:
-
-```sh
-yarn add resvg
-```
+## [Docs and Demos](https://vinsonchuong.github.io/resvg)
