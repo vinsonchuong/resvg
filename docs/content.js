@@ -5,7 +5,11 @@ import slugify from '@sindresorhus/slugify'
 
 const useStyles = createUseStyles({
   content: {
-    lineHeight: '1.5'
+    lineHeight: '1.5',
+    '& > .container': {
+      margin: '0 auto',
+      maxWidth: '600px'
+    }
   },
 
   h1: {
@@ -51,7 +55,9 @@ export function Content({ className, children }) {
 
   return (
     <article className={cx('content', classes.content, className)}>
-      {children}
+      <div className="container">
+        {children}
+      </div>
     </article>
   )
 }
