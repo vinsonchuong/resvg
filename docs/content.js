@@ -55,9 +55,7 @@ export function Content({ className, children }) {
 
   return (
     <article className={cx('content', classes.content, className)}>
-      <div className="container">
-        {children}
-      </div>
+      <div className="container">{children}</div>
     </article>
   )
 }
