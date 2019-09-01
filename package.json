@@ -15,7 +15,7 @@
   "scripts": {
     "test": "if [ -n \"$CI\" ]; then standard -v && ava -v; else standard -v --fix && ava -v; fi",
     "start": "parcel docs/index.html",
-    "release": "parcel build docs/index.html && semantic-release",
+    "release": "parcel build docs/index.html --public-url /resvg && semantic-release",
     "prepack": "build-esm"
   },
   "dependencies": {
