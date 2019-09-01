@@ -11,7 +11,7 @@
   "bugs": "https://github.com/vinsonchuong/resvg/issues",
   "license": "MIT",
   "author": "Vinson Chuong <vinsonchuong@gmail.com>",
-  "repository": "vinsonchuong/resvg",
+  "repository": "https://github.com/vinsonchuong/resvg",
   "scripts": {
     "test": "if [ -n \"$CI\" ]; then standard -v && ava -v; else standard -v --fix && ava -v; fi",
     "start": "parcel docs/index.html",
