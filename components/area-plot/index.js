@@ -4,7 +4,7 @@ import { Coordinates } from '../../'
 export default function AreaPlot({ points, ...props }) {
   return (
     <Coordinates.Context>
-      {({ height, mapX, mapY }) => {
+      {({ left, bottom, mapX, mapY }) => {
         const mappedPoints = points.map(([x, y]) => [mapX(x), mapY(y)])
 
         return (
@@ -12,9 +12,9 @@ export default function AreaPlot({ points, ...props }) {
             <polygon
               stroke="none"
               points={[
-                [0, height],
+                [left, bottom],
                 ...mappedPoints,
-                [mapX(points[points.length - 1][0]), height]
+                [mapX(points[points.length - 1][0]), bottom]
               ]
                 .map(point => point.join())
                 .join(' ')}

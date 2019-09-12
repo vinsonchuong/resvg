@@ -14,8 +14,8 @@ YAxis.computePadding = ({
 })
 
 export default function YAxis({
-  left = false,
-  right = false,
+  left: showAtLeft = false,
+  right: showAtRight = false,
   ticks = [],
   textWidth,
   textHeight,
@@ -23,16 +23,16 @@ export default function YAxis({
 }) {
   return (
     <Coordinates.Context>
-      {({ width, height, mapY }) => (
+      {({ top, bottom, left, right, mapY }) => (
         <g strokeWidth={1} stroke="#000" shapeRendering="crispEdges" {...props}>
-          {left && (
+          {showAtLeft && (
             <>
-              <line x1={0} y1={height} x2={0} y2={0} />
+              <line x1={left} y1={top} x2={left} y2={bottom} />
               {ticks.map(([y, label]) => (
                 <React.Fragment key={`left-${y}`}>
-                  <line x1={-4} y1={mapY(y)} x2={4} y2={mapY(y)} />
+                  <line x1={left - 4} y1={mapY(y)} x2={left + 4} y2={mapY(y)} />
                   <text
-                    x={0 - textWidth / 2}
+                    x={left - textWidth / 2}
                     y={mapY(y)}
                     dominantBaseline="central"
                     textAnchor="middle"
@@ -46,19 +46,19 @@ export default function YAxis({
             </>
           )}
 
-          {right && (
+          {showAtRight && (
             <>
-              <line x1={width} y1={height} x2={width} y2={0} />
+              <line x1={right} y1={top} x2={right} y2={bottom} />
               {ticks.map(([y, label]) => (
                 <React.Fragment key={`right-${y}`}>
                   <line
-                    x1={width - 4}
+                    x1={right - 4}
                     y1={mapY(y)}
-                    x2={width + 4}
+                    x2={right + 4}
                     y2={mapY(y)}
                   />
                   <text
-                    x={width + textWidth / 2}
+                    x={right + textWidth / 2}
                     y={mapY(y)}
                     dominantBaseline="central"
                     textAnchor="middle"

@@ -14,8 +14,8 @@ XAxis.computePadding = ({
 })
 
 export default function XAxis({
-  top = false,
-  bottom = false,
+  top: showAtTop = false,
+  bottom: showAtBottom = false,
   ticks = [],
   textWidth,
   textHeight,
@@ -23,17 +23,17 @@ export default function XAxis({
 }) {
   return (
     <Coordinates.Context>
-      {({ width, height, mapX }) => (
+      {({ top, bottom, left, right, height, mapX }) => (
         <g strokeWidth={1} stroke="#000" shapeRendering="crispEdges" {...props}>
-          {top && (
+          {showAtTop && (
             <>
-              <line x1={0} y1={0} x2={width} y2={0} />
+              <line x1={left} y1={top} x2={right} y2={top} />
               {ticks.map(([x, label]) => (
                 <React.Fragment key={`top-${x}`}>
-                  <line x1={mapX(x)} y1={0 - 4} x2={mapX(x)} y2={0 + 4} />
+                  <line x1={mapX(x)} y1={top - 4} x2={mapX(x)} y2={top + 4} />
                   <text
                     x={mapX(x)}
-                    y={0 - textHeight / 2}
+                    y={top - textHeight / 2}
                     dominantBaseline="central"
                     textAnchor="middle"
                     strokeWidth={0}
@@ -46,20 +46,20 @@ export default function XAxis({
             </>
           )}
 
-          {bottom && (
+          {showAtBottom && (
             <>
-              <line x1={0} y1={height} x2={width} y2={height} />
+              <line x1={left} y1={bottom} x2={right} y2={bottom} />
               {ticks.map(([x, label]) => (
                 <React.Fragment key={`bottom-${x}`}>
                   <line
                     x1={mapX(x)}
-                    y1={height - 4}
+                    y1={bottom - 4}
                     x2={mapX(x)}
-                    y2={height + 4}
+                    y2={bottom + 4}
                   />
                   <text
                     x={mapX(x)}
-                    y={height + textHeight / 2}
+                    y={bottom + textHeight / 2}
                     dominantBaseline="central"
                     textAnchor="middle"
                     strokeWidth={0}

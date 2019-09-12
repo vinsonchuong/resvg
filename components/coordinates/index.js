@@ -46,28 +46,35 @@ export default function Coordinates({
 
   return (
     <Svg.Context>
-      {({ width, height }) => (
-        <Context.Provider
-          value={{
-            width: width - padding.left - padding.right,
-            height: height - padding.top - padding.bottom,
-            mapX: x =>
-              ((x - dataBounds[0][0]) / (dataBounds[0][1] - dataBounds[0][0])) *
-              (width - padding.left - padding.right),
-            mapY: y =>
-              height -
-              padding.top -
-              padding.bottom -
-              ((y - dataBounds[1][0]) / (dataBounds[1][1] - dataBounds[1][0])) *
-                (height - padding.top - padding.bottom),
-            dataSets
-          }}
-        >
-          <g transform={`translate(${padding.left} ${padding.top})`}>
-            {children}
-          </g>
-        </Context.Provider>
-      )}
+      {({ width: svgWidth, height: svgHeight }) => {
+        const width = svgWidth - padding.left - padding.right
+        const height = svgHeight - padding.top - padding.bottom
+
+        return (
+          <Context.Provider
+            value={{
+              top: 0,
+              bottom: height,
+              left: 0,
+              right: width,
+              mapX: x =>
+                ((x - dataBounds[0][0]) /
+                  (dataBounds[0][1] - dataBounds[0][0])) *
+                width,
+              mapY: y =>
+                height -
+                ((y - dataBounds[1][0]) /
+                  (dataBounds[1][1] - dataBounds[1][0])) *
+                  height,
+              dataSets
+            }}
+          >
+            <g transform={`translate(${padding.left} ${padding.top})`}>
+              {children}
+            </g>
+          </Context.Provider>
+        )
+      }}
     </Svg.Context>
   )
 }
