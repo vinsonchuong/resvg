@@ -14,7 +14,6 @@ export default function Coordinates({
   React.Children.forEach(children, child => {
     if (child.type.computePadding) {
       const childPadding = child.type.computePadding(child.props)
-      console.log(child.type.name, child.props, childPadding)
       for (const direction of ['top', 'right', 'bottom', 'left']) {
         padding[direction] = Math.max(
           padding[direction],
