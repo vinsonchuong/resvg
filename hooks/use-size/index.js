@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 
-export default function Size({ render, ...props }) {
+export default function() {
   const [size, setSize] = useState(null)
   const element = useRef(null)
 
@@ -19,9 +19,5 @@ export default function Size({ render, ...props }) {
     }
   }, [])
 
-  return (
-    <div {...props} ref={element}>
-      {size && render(size)}
-    </div>
-  )
+  return [element, size]
 }

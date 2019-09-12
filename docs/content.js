@@ -27,6 +27,12 @@ const useStyles = createUseStyles({
     fontWeight: '400'
   },
 
+  h3: {
+    margin: '24px 0 16px',
+    fontSize: '20px',
+    fontWeight: '400'
+  },
+
   p: {
     margin: '16px 0',
     fontSize: '16px',
@@ -77,6 +83,16 @@ export function H2({ className, children }) {
     <h2 id={slugify(children)} className={cx('h2', classes.h2, className)}>
       {children}
     </h2>
+  )
+}
+
+export function H3({ className, children }) {
+  const classes = useStyles()
+
+  return (
+    <h3 id={slugify(children)} className={cx('h3', classes.h3, className)}>
+      {children}
+    </h3>
   )
 }
 

@@ -31,6 +31,17 @@ const useStyles = createUseStyles({
     '& a:hover': {
       textDecoration: 'underline'
     }
+  },
+
+  o3: {
+    margin: '8px 0 0 32px',
+    '& a': {
+      color: 'inherit',
+      textDecoration: 'none'
+    },
+    '& a:hover': {
+      textDecoration: 'underline'
+    }
   }
 })
 
@@ -57,6 +68,16 @@ export function O2({ className, children }) {
 
   return (
     <li className={cx('o2', classes.o2, className)}>
+      <a href={`#${slugify(children)}`}>{children}</a>
+    </li>
+  )
+}
+
+export function O3({ className, children }) {
+  const classes = useStyles()
+
+  return (
+    <li className={cx('o3', classes.o3, className)}>
       <a href={`#${slugify(children)}`}>{children}</a>
     </li>
   )

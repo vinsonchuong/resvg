@@ -3,7 +3,7 @@ import openApp from 'puppet-strings-open-app'
 import { resizeTab, findElement } from 'puppet-strings'
 
 test('reporting width and height', async t => {
-  const tab = await openApp('components/size/fixtures/index.html')
+  const tab = await openApp('hooks/use-size/fixtures/index.html')
 
   await findElement(tab, '.size')
 
