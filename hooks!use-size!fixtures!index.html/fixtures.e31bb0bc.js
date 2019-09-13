@@ -31745,16 +31745,15 @@ var _resizeObserverPolyfill = _interopRequireDefault(require("resize-observer-po
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _default() {
+function _default(element) {
   if ("test" === 'test' && navigator.userAgent.includes('jsdom')) {
-    return [(0, _react.useRef)(null), {
+    return {
       width: 1000,
       height: 1000
-    }];
+    };
   }
 
   const [size, setSize] = (0, _react.useState)(null);
-  const element = (0, _react.useRef)(null);
   (0, _react.useEffect)(() => {
     const resizeObserver = new _resizeObserverPolyfill.default(entries => {
       setSize({
@@ -31767,12 +31766,12 @@ function _default() {
       resizeObserver.disconnect();
     };
   }, []);
-  return [element, size];
+  return size;
 }
 },{"react":"../../../node_modules/react/index.js","resize-observer-polyfill":"../../../node_modules/resize-observer-polyfill/dist/ResizeObserver.es.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = require("react-dom");
 
@@ -31780,8 +31779,11 @@ var _ = _interopRequireDefault(require("../"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
 function Component() {
-  const [element, size] = (0, _.default)();
+  const element = (0, _react.useRef)(null);
+  const size = (0, _.default)(element);
   return _react.default.createElement("div", {
     ref: element,
     className: "size",
@@ -31824,7 +31826,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41549" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46883" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
