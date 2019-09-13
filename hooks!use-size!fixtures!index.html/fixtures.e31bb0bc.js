@@ -31746,6 +31746,13 @@ var _resizeObserverPolyfill = _interopRequireDefault(require("resize-observer-po
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _default() {
+  if ("test" === 'test' && navigator.userAgent.includes('jsdom')) {
+    return [(0, _react.useRef)(null), {
+      width: 1000,
+      height: 1000
+    }];
+  }
+
   const [size, setSize] = (0, _react.useState)(null);
   const element = (0, _react.useRef)(null);
   (0, _react.useEffect)(() => {
@@ -31817,7 +31824,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42743" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "41549" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
