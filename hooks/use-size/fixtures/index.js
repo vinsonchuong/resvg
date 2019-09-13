@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { render } from 'react-dom'
 import useSize from '../'
 
 function Component() {
-  const [element, size] = useSize()
+  const element = useRef(null)
+  const size = useSize(element)
 
   return (
     <div

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { createUseStyles } from 'react-jss'
 import cx from 'classnames'
 import Logo from './logo'
@@ -363,7 +363,8 @@ export default function Docs() {
         <Example>
           {(() => {
             function Component() {
-              const [element, size] = useSize()
+              const element = useRef()
+              const size = useSize(element)
 
               return (
                 <div
@@ -391,11 +392,12 @@ export default function Docs() {
         <Code
           language="jsx"
           code={`
-          import React from 'react'
+          import React, { useRef } from 'react'
           import { useSize } from 'resvg'
 
           export default function Component() {
-            const [element, size] = useSize()
+            const element = useRef()
+            const size = useSize(element)
 
             return (
               <div

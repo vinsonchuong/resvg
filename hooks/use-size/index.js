@@ -1,22 +1,18 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 
-export default function() {
+export default function(element) {
   if (
     process.env.NODE_ENV === 'test' &&
     navigator.userAgent.includes('jsdom')
   ) {
-    return [
-      useRef(null),
-      {
-        width: 1000,
-        height: 1000
-      }
-    ]
+    return {
+      width: 1000,
+      height: 1000
+    }
   }
 
   const [size, setSize] = useState(null)
-  const element = useRef(null)
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver(entries => {
@@ -32,5 +28,5 @@ export default function() {
     }
   }, [])
 
-  return [element, size]
+  return size
 }
