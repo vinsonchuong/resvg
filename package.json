@@ -42,6 +42,7 @@
     "semantic-release": "^15.13.24",
     "standard-esnext": "^5.3.3",
     "strip-indent": "^3.0.0",
+    "test-tube": "^1.16.2",
     "trim-newlines": "^3.0.0"
   },
   "ava": {
