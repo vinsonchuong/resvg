@@ -7,6 +7,7 @@ import { Content, H1, H2, H3, P, A, Example } from './content'
 import Code from './code'
 import {
   useSize,
+  useComputedStyle,
   Svg,
   Coordinates,
   XAxis,
@@ -70,6 +71,7 @@ export default function Docs() {
 
           <O1>Hooks</O1>
           <O2>useSize</O2>
+          <O2>useComputedStyle</O2>
 
           <O1>Components</O1>
         </Outline>
@@ -414,6 +416,54 @@ export default function Docs() {
                   <div>
                     {size.width} x {size.height}
                   </div>
+                }
+              </div>
+            )
+          }
+        `}
+        />
+
+        <H2>useComputedStyle</H2>
+        <P>
+          The sizing and placement of SVG elements can be affected by CSS, which
+          can interfere with any JavaScript logic that tries to do the same.{' '}
+          <Code inline language="jsx" code="useComputedStyle()" /> allows our
+          JavaScript logic to account for any user-specified CSS.
+        </P>
+        <Example>
+          {(() => {
+            function Component({ ...props }) {
+              const element = useRef()
+              const style = useComputedStyle(element)
+
+              return (
+                <div {...props} ref={element}>
+                  {style && <p>font-size: {style.fontSize}</p>}
+                </div>
+              )
+            }
+            return <Component style={{ fontSize: '20px' }} />
+          })()}
+        </Example>
+        <Code
+          language="jsx"
+          code={`
+          import React, { useRef } from 'react'
+          import { useComputedStyle } from 'resvg'
+
+          export default function Component() {
+            const element = useRef()
+            const style = useComputedStyle(element)
+
+            return (
+              <div
+                ref={element}
+                style={{
+                  fontSize: '20px'
+                }}
+              >
+                {style &&
+                  <p>font-size: \${style.fontSize}</p>
                 }
               </div>
             )
