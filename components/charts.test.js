@@ -1,14 +1,7 @@
 import test from 'ava'
 import React from 'react'
 import { render, findElement, findElements } from 'test-tube'
-import {
-  Svg,
-  Coordinates,
-  XAxis,
-  YAxis,
-  AreaPlot,
-  ScatterPlot
-} from '../'
+import { Svg, Coordinates, XAxis, YAxis, AreaPlot, ScatterPlot } from '../'
 
 test('drawing a scatter plot', t => {
   const data = [[0, 0], [1, 1], [2, 2]]
@@ -27,10 +20,7 @@ test('drawing a scatter plot', t => {
 
   const [unmapX, unmapY] = invertCoordinates(data, points)
 
-  t.deepEqual(
-    points.map(([x, y]) => [unmapX(x), unmapY(y)]),
-    data
-  )
+  t.deepEqual(points.map(([x, y]) => [unmapX(x), unmapY(y)]), data)
 })
 
 test('drawing a scatter plot and adding axis labels', t => {
@@ -62,10 +52,7 @@ test('drawing a scatter plot and adding axis labels', t => {
 
   const [unmapX, unmapY] = invertCoordinates(data, points)
 
-  t.deepEqual(
-    points.map(([x, y]) => [unmapX(x), unmapY(y)]),
-    data
-  )
+  t.deepEqual(points.map(([x, y]) => [unmapX(x), unmapY(y)]), data)
 })
 
 test('drawing an area plot', t => {
@@ -87,18 +74,21 @@ test('drawing an area plot', t => {
 
   const [unmapX, unmapY] = invertCoordinates(data, points)
 
-  t.deepEqual(
-    points.map(([x, y]) => [unmapX(x), unmapY(y)]),
-    data
-  )
+  t.deepEqual(points.map(([x, y]) => [unmapX(x), unmapY(y)]), data)
 })
 
 function invertCoordinates(dataPoints, visualPoints) {
   const visualBounds = findBounds(visualPoints)
   const dataBounds = findBounds(dataPoints)
   return [
-    x => (x - visualBounds[0][0]) * (dataBounds[0][1] - dataBounds[0][0]) / (visualBounds[0][1] - visualBounds[0][0]) + dataBounds[0][0],
-    y => dataBounds[1][1] - (y - visualBounds[1][0]) * (dataBounds[1][1] - dataBounds[1][0]) / (visualBounds[1][1] - visualBounds[1][0])
+    x =>
+      ((x - visualBounds[0][0]) * (dataBounds[0][1] - dataBounds[0][0])) /
+        (visualBounds[0][1] - visualBounds[0][0]) +
+      dataBounds[0][0],
+    y =>
+      dataBounds[1][1] -
+      ((y - visualBounds[1][0]) * (dataBounds[1][1] - dataBounds[1][0])) /
+        (visualBounds[1][1] - visualBounds[1][0])
   ]
 }
 
