@@ -291,7 +291,7 @@ export default function Docs() {
           code={`
           import React from 'react'
           import {
-            Svg, Coordinates, ScatterPlot, XAxis, YAxis, GridLines
+            Svg, Coordinates, AreaPlot, XAxis, YAxis, GridLines
           } from 'resvg'
 
           export default function Chart() {
