@@ -13,6 +13,8 @@ YAxis.computePadding = ({
   left: left ? Math.max(4, textWidth) : 0
 })
 
+YAxis.computePoints = ({ ticks }) => ticks.map(([y]) => [null, y])
+
 export default function YAxis({
   left: showAtLeft = false,
   right: showAtRight = false,

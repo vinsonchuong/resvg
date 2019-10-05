@@ -1,6 +1,11 @@
 import React from 'react'
 import { Coordinates } from '../../'
 
+GridLines.computePoints = ({ x: xs = [], y: ys = [] }) => [
+  ...xs.map(x => [x, null]),
+  ...ys.map(y => [null, y])
+]
+
 export default function GridLines({ x: xs = [], y: ys = [], ...props }) {
   return (
     <Coordinates.Context>

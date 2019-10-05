@@ -11,6 +11,7 @@ export default function Coordinates({
   const padding = userPadding
   const dataBounds = [[+Infinity, -Infinity], [+Infinity, -Infinity]]
   const dataSets = []
+
   React.Children.forEach(children, child => {
     if (child.type.computePadding) {
       const childPadding = child.type.computePadding(child.props)
@@ -22,23 +23,28 @@ export default function Coordinates({
       }
     }
 
-    if (child.props.points) {
-      dataSets.push(child.props.points)
-      for (const point of child.props.points) {
-        if (point[0] < dataBounds[0][0]) {
-          dataBounds[0][0] = point[0]
+    if (child.type.computePoints) {
+      const points = child.type.computePoints(child.props)
+      dataSets.push(points)
+      for (const [x, y] of points) {
+        if (typeof x === 'number') {
+          if (x < dataBounds[0][0]) {
+            dataBounds[0][0] = x
+          }
+
+          if (x > dataBounds[0][1]) {
+            dataBounds[0][1] = x
+          }
         }
 
-        if (point[0] > dataBounds[0][1]) {
-          dataBounds[0][1] = point[0]
-        }
+        if (typeof y === 'number') {
+          if (y < dataBounds[1][0]) {
+            dataBounds[1][0] = y
+          }
 
-        if (point[1] < dataBounds[1][0]) {
-          dataBounds[1][0] = point[1]
-        }
-
-        if (point[1] > dataBounds[1][1]) {
-          dataBounds[1][1] = point[1]
+          if (y > dataBounds[1][1]) {
+            dataBounds[1][1] = y
+          }
         }
       }
     }

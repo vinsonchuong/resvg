@@ -8,6 +8,8 @@ ScatterPlot.computePadding = ({ circleRadius = 4 }) => ({
   left: circleRadius
 })
 
+ScatterPlot.computePoints = ({ points }) => points
+
 export default function ScatterPlot({ points, circleRadius = 4, ...props }) {
   return (
     <Coordinates.Context>

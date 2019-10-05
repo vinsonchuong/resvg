@@ -13,6 +13,8 @@ XAxis.computePadding = ({
   left: textWidth / 2
 })
 
+XAxis.computePoints = ({ ticks }) => ticks.map(([x]) => [x, null])
+
 export default function XAxis({
   top: showAtTop = false,
   bottom: showAtBottom = false,

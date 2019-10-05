@@ -1,6 +1,8 @@
 import React from 'react'
 import { Coordinates } from '../../'
 
+AreaPlot.computePoints = ({ points }) => points
+
 export default function AreaPlot({ points, ...props }) {
   return (
     <Coordinates.Context>

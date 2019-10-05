@@ -107,7 +107,7 @@ export default function Docs() {
         <H3>Scatter Chart</H3>
         <Example>
           <Svg style={{ width: '100%', height: '300px' }}>
-            <Coordinates dataPadding={1}>
+            <Coordinates>
               <ScatterPlot
                 points={[
                   [0, 0],
@@ -175,7 +175,7 @@ export default function Docs() {
 
             return (
               <Svg style={{ width: '100%', height: '300px' }}>
-                <Coordinates dataPadding={1}>
+                <Coordinates>
                   <ScatterPlot
                     points={points}
                     style={{ fill: '#779ecb' }}
@@ -208,7 +208,7 @@ export default function Docs() {
         <H3>Area Chart</H3>
         <Example>
           <Svg style={{ width: '100%', height: '300px' }}>
-            <Coordinates dataPadding={1}>
+            <Coordinates>
               <AreaPlot
                 points={[
                   [0, 2],
@@ -271,18 +271,11 @@ export default function Docs() {
               />
               <YAxis
                 right
-                ticks={[
-                  [0, '0'],
-                  [1, '1'],
-                  [2, '2'],
-                  [3, '3'],
-                  [4, '4'],
-                  [5, '5']
-                ]}
+                ticks={[[0, '0'], [2, '2'], [4, '4'], [6, '6']]}
                 textWidth={32}
                 textHeight={32}
               />
-              <GridLines y={[2, 4]} style={{ strokeDasharray: '4 8' }} />
+              <GridLines y={[2, 4, 6]} style={{ strokeDasharray: '4 8' }} />
             </Coordinates>
           </Svg>
         </Example>
@@ -297,7 +290,7 @@ export default function Docs() {
           export default function Chart() {
             return (
               <Svg style={{ width: '100%', height: '300px' }}>
-                <Coordinates dataPadding={1}>
+                <Coordinates>
                   <AreaPlot
                     points={[[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 3], [6, 2], [7, 1], [8, 2], [9, 3], [10, 2]]}
                     style={{
