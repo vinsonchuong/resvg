@@ -19,7 +19,7 @@
     "prepack": "build-esm"
   },
   "dependencies": {
-    "react": ">=16.10.1",
+    "react": ">=16.10.2",
     "resize-observer-polyfill": "^1.5.1",
     "resvg": "^1.4.0"
   },
@@ -36,7 +36,7 @@
     "parcel-bundler": "^1.12.3",
     "puppet-strings": "^3.2.0",
     "puppet-strings-open-app": "^3.0.2",
-    "react-dom": "^16.10.1",
+    "react-dom": "^16.10.2",
     "react-jss": "^10.0.0",
     "react-syntax-highlighter": "^11.0.2",
     "semantic-release": "^15.13.24",
