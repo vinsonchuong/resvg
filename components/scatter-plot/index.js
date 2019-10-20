@@ -12,7 +12,7 @@ ScatterPlot.computePoints = ({ points }) => points
 
 export default function ScatterPlot({ points, circleRadius = 4, ...props }) {
   return (
-    <Coordinates.Context>
+    <Coordinates.Context.Consumer>
       {({ mapX, mapY }) => (
         <g {...props}>
           {points.map(point => (
@@ -25,6 +25,6 @@ export default function ScatterPlot({ points, circleRadius = 4, ...props }) {
           ))}
         </g>
       )}
-    </Coordinates.Context>
+    </Coordinates.Context.Consumer>
   )
 }

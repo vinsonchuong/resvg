@@ -8,6 +8,7 @@ import Code from './code'
 import {
   useSize,
   useComputedStyle,
+  usePointer,
   Svg,
   Coordinates,
   XAxis,
@@ -72,6 +73,7 @@ export default function Docs() {
           <O1>Hooks</O1>
           <O2>useSize</O2>
           <O2>useComputedStyle</O2>
+          <O2>usePointer</O2>
 
           <O1>Components</O1>
         </Outline>
@@ -457,6 +459,70 @@ export default function Docs() {
               >
                 {style &&
                   <p>font-size: \${style.fontSize}</p>
+                }
+              </div>
+            )
+          }
+        `}
+        />
+
+        <H2>usePointer</H2>
+        <P>
+          Because SVG elements can have arbitrary shapes and sizes, binding
+          pointer events to them may not yield the desired results. In these
+          cases, we must detect where the user&lsquo;s mouse or finger is on the
+          visualization and infer their intent.
+        </P>
+        <Example>
+          {(() => {
+            function Component({ ...props }) {
+              const element = useRef()
+              const pointer = usePointer(element)
+
+              return (
+                <div
+                  ref={element}
+                  style={{
+                    lineHeight: '200px',
+                    background: '#ffd1dc',
+                    textAlign: 'center'
+                  }}
+                >
+                  {pointer ? (
+                    <div>
+                      {pointer.x}, {pointer.y}
+                    </div>
+                  ) : (
+                    <div>Put mouse here to see coordinates</div>
+                  )}
+                </div>
+              )
+            }
+            return <Component />
+          })()}
+        </Example>
+        <Code
+          language="jsx"
+          code={`
+          import React, { useRef } from 'react'
+          import { usePointer } from 'resvg'
+
+          export default function Component() {
+            const element = useRef()
+            const pointer = usePointer(element)
+
+            return (
+              <div
+                ref={element}
+                style={{
+                  lineHeight: '200px',
+                  background: '#ffd1dc',
+                  textAlign: 'center'
+                }}
+              >
+                {pointer
+                  ? <div>{pointer.x}, {pointer.y}</div>
+                  : <div>Put mouse here to see coordinates</div>
                 }
               </div>
             )

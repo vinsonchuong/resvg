@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 import { Svg } from '../../'
 
 const Context = createContext()
-Coordinates.Context = Context.Consumer
+Coordinates.Context = Context
 
 export default function Coordinates({
   padding: userPadding = { top: 0, right: 0, bottom: 0, left: 0 },
@@ -51,7 +51,7 @@ export default function Coordinates({
   })
 
   return (
-    <Svg.Context>
+    <Svg.Context.Consumer>
       {({ width, height }) => (
         <Context.Provider
           value={{
@@ -68,12 +68,21 @@ export default function Coordinates({
               padding.bottom -
               ((y - dataBounds[1][0]) / (dataBounds[1][1] - dataBounds[1][0])) *
                 (height - padding.top - padding.bottom),
+            unmapX: x =>
+              dataBounds[0][0] +
+              ((x - padding.left) / (width - padding.right - padding.left)) *
+                (dataBounds[0][1] - dataBounds[0][0]),
+            unmapY: y =>
+              dataBounds[1][0] +
+              ((height - padding.bottom - y) /
+                (height - padding.bottom - padding.top)) *
+                (dataBounds[1][1] - dataBounds[1][0]),
             dataSets
           }}
         >
           {children}
         </Context.Provider>
       )}
-    </Svg.Context>
+    </Svg.Context.Consumer>
   )
 }

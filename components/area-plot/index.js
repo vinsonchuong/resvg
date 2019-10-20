@@ -5,7 +5,7 @@ AreaPlot.computePoints = ({ points }) => points
 
 export default function AreaPlot({ points, ...props }) {
   return (
-    <Coordinates.Context>
+    <Coordinates.Context.Consumer>
       {({ left, bottom, mapX, mapY }) => {
         const mappedPoints = points.map(([x, y]) => [mapX(x), mapY(y)])
 
@@ -28,6 +28,6 @@ export default function AreaPlot({ points, ...props }) {
           </g>
         )
       }}
-    </Coordinates.Context>
+    </Coordinates.Context.Consumer>
   )
 }

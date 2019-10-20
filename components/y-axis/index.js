@@ -24,7 +24,7 @@ export default function YAxis({
   ...props
 }) {
   return (
-    <Coordinates.Context>
+    <Coordinates.Context.Consumer>
       {({ top, bottom, left, right, mapY }) => (
         <g strokeWidth={1} stroke="#000" shapeRendering="crispEdges" {...props}>
           {showAtLeft && (
@@ -75,6 +75,6 @@ export default function YAxis({
           )}
         </g>
       )}
-    </Coordinates.Context>
+    </Coordinates.Context.Consumer>
   )
 }

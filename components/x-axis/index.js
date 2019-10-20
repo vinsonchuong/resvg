@@ -24,7 +24,7 @@ export default function XAxis({
   ...props
 }) {
   return (
-    <Coordinates.Context>
+    <Coordinates.Context.Consumer>
       {({ top, bottom, left, right, height, mapX }) => (
         <g strokeWidth={1} stroke="#000" shapeRendering="crispEdges" {...props}>
           {showAtTop && (
@@ -75,6 +75,6 @@ export default function XAxis({
           )}
         </g>
       )}
-    </Coordinates.Context>
+    </Coordinates.Context.Consumer>
   )
 }

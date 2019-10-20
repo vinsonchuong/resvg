@@ -1,5 +1,6 @@
 export { default as useSize } from './hooks/use-size'
 export { default as useComputedStyle } from './hooks/use-computed-style'
+export { default as usePointer } from './hooks/use-pointer'
 
 export { default as Svg } from './components/svg'
 export { default as Coordinates } from './components/coordinates'

@@ -8,7 +8,7 @@ GridLines.computePoints = ({ x: xs = [], y: ys = [] }) => [
 
 export default function GridLines({ x: xs = [], y: ys = [], ...props }) {
   return (
-    <Coordinates.Context>
+    <Coordinates.Context.Consumer>
       {({ top, bottom, left, right, mapX, mapY }) => (
         <g strokeWidth={1} stroke="#000" shapeRendering="crispEdges" {...props}>
           {xs.map(x => (
@@ -31,6 +31,6 @@ export default function GridLines({ x: xs = [], y: ys = [], ...props }) {
           ))}
         </g>
       )}
-    </Coordinates.Context>
+    </Coordinates.Context.Consumer>
   )
 }

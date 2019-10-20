@@ -2,7 +2,7 @@ import React, { createContext, useRef } from 'react'
 import { useSize } from '../../'
 
 const Context = createContext()
-Svg.Context = Context.Consumer
+Svg.Context = Context
 
 export default function Svg({ children, ...props }) {
   const element = useRef(null)
