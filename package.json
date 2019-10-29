@@ -19,30 +19,30 @@
     "prepack": "build-esm"
   },
   "dependencies": {
-    "react": ">=16.10.2",
+    "react": ">=16.11.0",
     "resize-observer-polyfill": "^1.5.1",
-    "resvg": "^1.4.0"
+    "resvg": "^1.6.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
     "@babel/register": "^7.6.2",
-    "@qiwi/semantic-release-gh-pages-plugin": "^1.10.6",
+    "@qiwi/semantic-release-gh-pages-plugin": "^1.10.9",
     "@sindresorhus/slugify": "^0.9.1",
     "ava": "^2.4.0",
     "build-esm": "^4.2.2",
     "classnames": "^2.2.6",
-    "parcel-bundler": "^1.12.3",
+    "parcel-bundler": "^1.12.4",
     "puppet-strings": "^3.2.0",
     "puppet-strings-open-app": "^3.0.2",
-    "react-dom": "^16.10.2",
+    "react-dom": "^16.11.0",
     "react-jss": "^10.0.0",
     "react-syntax-highlighter": "^11.0.2",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^15.13.28",
     "standard-esnext": "^5.3.4",
     "strip-indent": "^3.0.0",
-    "test-tube": "^1.16.4",
+    "test-tube": "^1.16.5",
     "trim-newlines": "^3.0.0"
   },
   "ava": {
