@@ -28,6 +28,7 @@
     "@babel/preset-react": "^7.7.4",
     "@babel/register": "^7.7.4",
     "@qiwi/semantic-release-gh-pages-plugin": "^1.14.2",
+    "@semantic-release/exec": "^3.3.8",
     "@sindresorhus/slugify": "^0.9.1",
     "ava": "^2.4.0",
     "build-esm": "^4.2.2",
@@ -66,6 +67,10 @@
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
       "@semantic-release/github",
+      {
+        "path": "@semantic-release/exec",
+        "prepareCmd": "parcel build docs/index.html --public-url /resvg"
+      },
       {
         "path": "@qiwi/semantic-release-gh-pages-plugin",
         "src": "dist"
