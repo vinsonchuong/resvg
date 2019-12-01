@@ -20,14 +20,13 @@
   },
   "dependencies": {
     "react": ">=16.12.0",
-    "resize-observer-polyfill": "^1.5.1",
-    "resvg": "^1.6.1"
+    "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "@babel/register": "^7.7.0",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/register": "^7.7.4",
     "@qiwi/semantic-release-gh-pages-plugin": "^1.14.2",
     "@sindresorhus/slugify": "^0.9.1",
     "ava": "^2.4.0",
