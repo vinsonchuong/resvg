@@ -12,7 +12,7 @@ jobs:
         node-version: 13.x
     - uses: actions/cache@v1
       with:
-        key: yarn
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         path: ~/.cache/yarn
     - run: yarn
     - run: yarn test
