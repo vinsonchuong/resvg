@@ -13,7 +13,7 @@ jobs:
     - uses: actions/cache@v1
       with:
         key: yarn
-        path: ${{ env.HOME }}/.cache/yarn
+        path: ~/.cache/yarn
     - run: yarn
     - run: yarn test
     - run: yarn release
